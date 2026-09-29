@@ -1,12 +1,11 @@
 # Privacy Policy for Expired
 
-**Effective date: 12 September 2026**
+**Effective date: 28 September 2026**
 
 Expired ("the App") helps you track subscriptions, memberships and documents, and reminds
 you before they renew or expire.
 
-The App is published by **Deon O'Brien, Dubai, United Arab Emirates** (trading as Swift
-Studios), referred to below as "we" or "I". For privacy purposes I am the data controller
+The App is published by **Deon O'Brien, Dubai, United Arab Emirates**, referred to below as "we" or "I". For privacy purposes I am the data controller
 for the limited processing described here.
 
 This policy describes exactly what the App handles, what leaves your device, and what we
@@ -22,6 +21,9 @@ never collect.
   advertising.
 - We hold three small server-side records about you: a random identifier, a daily
   **count** of AI requests, and whether your Pro subscription is active. Details below.
+- By default the App also reports **which well-known services** (for example "Netflix")
+  are tracked on your device, as an anonymous tally with no identifier stored against it.
+  You can turn this off in Settings → Privacy. See section 5.
 - **We never sell, rent or trade your information.**
 
 ## 1. Information stored on your device
@@ -75,31 +77,61 @@ Our backend runs on **Supabase**. Against your anonymous identifier we store onl
 |---|---|
 | Anonymous user | The random identifier and its creation timestamp |
 | AI usage counter | The date, a count of requests made that day, and an estimated token total |
-| Entitlement mirror | Whether Pro is active, and its expiry date |
+| Entitlement mirror | Whether Pro is active, its expiry date, and when we last checked it with RevenueCat |
 
-**We do not store the screenshots you submit, the text extracted from them, or any of your
-item data.** The usage record is a counter, not a log of content.
+Separately, and **not** linked to your identifier, we keep one app-wide tally:
+
+| Record | Contents |
+|---|---|
+| Service popularity | A well-known service name (for example "Netflix") and how many devices have reported tracking it |
+
+**We do not store the screenshots or documents you submit, the web pages you ask us to
+read, the text extracted from any of them, or any of your item data.** The usage record is a
+counter, not a log of content.
 
 ## 5. Information that leaves your device
 
-### AI Screenshot Import (optional)
+### AI features (optional, Expired Pro)
 
-If you choose to import a screenshot so the App can create items from it, the image is sent
-over an encrypted connection to our processing service (a Supabase Edge Function we
-operate), which forwards it to one third-party AI provider to extract the text it contains.
+Three features can send content to an AI service. Each runs only when you choose to use it:
 
-**Neither our processing service nor the App stores your screenshot or the text extracted
-from it.** The image is held in memory only for the duration of the API call and is not
-written to any database or file. What our service records is a counter — see section 4.
+- **AI Screenshot Import** — creates items from a screenshot you pick.
+- **Document Scan** — reads a document you scan, drop or open in the App (for example a
+  passport, licence, insurance policy or lease) to fill in its name and dates.
+- **Read Page with AI** — reads the web page at an address you enter, to fill in a
+  subscription's name and price.
 
-The providers currently in use, and what each does with the request:
+**With the default Analyzer setting ("Automatic"), on a device that supports Apple
+Intelligence, screenshots and documents are processed on your device first**, and if that
+succeeds nothing leaves it. Otherwise — if the device doesn't support it, the on-device
+model can't read the content, or you have chosen a specific cloud provider under Settings →
+Analyzer — the content is sent over an encrypted connection to our processing service (a
+Supabase Edge Function we operate), which forwards it to **one third-party AI provider at a
+time**, trying the next provider only if one is unavailable:
 
-**Google (Gemini API, paid tier)** —
-[privacy policy](https://policies.google.com/privacy) ·
-[API terms](https://ai.google.dev/gemini-api/terms)
-Google does not use prompts or generated outputs from the paid API tier to train or
-fine-tune its models. Requests are retained for up to **55 days** solely for abuse and
-safety monitoring, then purged.
+- For screenshots and documents, what is sent is the **image**, and/or the **text your
+  device recognised in it**. A document scan can therefore include whatever the document
+  shows — for example your name, date of birth and document number. **Please do not scan a
+  document you would not want a third party to process.**
+- For Read Page with AI, the App sends **the web address you entered** to our service. Our
+  service then fetches that page itself, so the site sees our server's request for the page.
+  Only the page's title, description and visible text are forwarded to the AI provider. Your
+  device still requests the site's icon as described under "Service icons" below.
+
+**Neither our processing service nor the App stores what you submit or the text extracted
+from it.** It is held in memory only for the duration of the request and is not written to
+any database or file. What our service records is a counter — see section 4.
+
+The providers currently in use, in the order they are tried, and what each does with the
+request:
+
+**OpenAI (API)** —
+[privacy policy](https://openai.com/policies/privacy-policy/) ·
+[API data usage](https://openai.com/policies/api-data-usage-policies/)
+OpenAI states that it does not use data sent through its API to train its models unless the
+customer opts in, which we have not. API requests may be retained for a limited period (up
+to 30 days under OpenAI's standard terms) for abuse and misuse monitoring, then deleted.
+OpenAI is based in the United States.
 
 **DeepSeek (Open Platform API)** —
 [privacy policy](https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html) ·
@@ -108,22 +140,56 @@ DeepSeek's Open Platform terms are broader. DeepSeek logs API requests and assoc
 metadata, and its terms and privacy policy reserve rights to use inputs and outputs for
 platform development, research and model improvement. **We cannot tell you that data sent
 to DeepSeek is never retained or never used for model development, and we do not claim
-that.** DeepSeek is based in China, so a request routed to it is processed there.
+that.** DeepSeek is based in China, so a request routed to it is processed there. DeepSeek
+receives text only, never an image.
 
-Because a screenshot may be processed outside the UAE, the UK and the EEA, and because the
-DeepSeek terms above are broader than Google's, **please do not import screenshots
-containing information you would not want a third party to retain.** If you never use this
-feature, no image ever leaves your device.
+**Google (Gemini API, paid tier)** —
+[privacy policy](https://policies.google.com/privacy) ·
+[API terms](https://ai.google.dev/gemini-api/terms)
+Google does not use prompts or generated outputs from the paid API tier to train or
+fine-tune its models. Requests are retained for up to **55 days** solely for abuse and
+safety monitoring, then purged.
 
-### Service icon lookup (optional)
+Because a request may be processed outside the UAE, the UK and the EEA, and because the
+DeepSeek terms above are broader than the others, **please do not submit screenshots,
+documents or pages containing information you would not want a third party to retain.** If
+you never use these features, no image, document or page content ever leaves your device.
 
-When you add an item with a website address, the App may request that site's icon so the item
-shows a recognisable logo. The request is sent to public icon services — currently
-[Google's favicon service](https://policies.google.com/privacy),
-[icon.horse](https://icon.horse/privacy) and
-[DuckDuckGo's icon service](https://duckduckgo.com/privacy) — and contains **only the
-website domain you entered**. It does not contain the item's name, cost, dates, notes or any
-credentials you stored.
+### Service icons and App Store search
+
+To show a recognisable logo for an item, and to suggest apps as you type:
+
+- When an item has a website address, the App requests that site's icon from public icon
+  services — currently [Google's favicon service](https://policies.google.com/privacy),
+  [icon.horse](https://icon.horse/privacy) and
+  [DuckDuckGo's icon service](https://duckduckgo.com/privacy) — and may also request the
+  icon **directly from the website itself**. These requests contain **only the website
+  domain**.
+- When you search for an app while adding an item, and when the App looks up an icon by an
+  item's name, **the name you typed** is sent to **Apple's App Store search service**
+  (governed by [Apple's Privacy Policy](https://www.apple.com/legal/privacy/)).
+
+None of these requests contain an item's cost, dates, notes or any credentials you stored.
+
+### Service popularity (on by default; can be turned off)
+
+When you add an item whose name exactly matches a well-known service in the App's built-in
+catalogue (for example "Netflix"), the App reports **that catalogue name** to our backend,
+once per service per device, so we can see which services are most common and show them
+first. **Only the catalogue name is recorded** — never a name you typed that isn't in the
+catalogue, and never a cost, date, note or credential. The request travels with the
+anonymous session described in section 3, but **your identifier is not stored with the
+name**: the only thing kept is a per-service count (section 4).
+
+You can turn this off at any time in **Settings → Privacy → Share Subscription Usage**, after
+which nothing more is sent.
+
+### Exchange rates
+
+To convert costs between currencies, the App periodically downloads current exchange rates
+from our backend. The request travels with the anonymous session described in section 3,
+but contains nothing about your items, and nothing about it is stored against your
+identifier.
 
 ### Purchases
 
@@ -138,19 +204,21 @@ purchases. Subscription changes, cancellations and refunds are handled by Apple.
 ### Network metadata
 
 Any internet request necessarily reveals technical information to whoever receives it. Our
-processing service, the AI providers, the icon services, RevenueCat and Apple will each
+backend, the icon services and websites, RevenueCat and Apple will each
 receive things such as your **IP address, the time of the request, and network/user-agent
 information**. We do not store, analyse or use this metadata for any purpose, and we do not
 combine it with anything else; but we cannot claim the request contains nothing beyond the
-content described above. Each recipient handles it under its own policy.
+content described above. Each recipient handles it under its own policy. (The AI providers
+receive requests from our server, not from your device.)
 
 ## 6. What we never collect
 
 - Your name, email address, phone number or postal address
 - The account emails, usernames or passwords you store against items. **These never leave
-your device except into your own private iCloud container, and are never transmitted to
-us or to any AI provider.**
-- Analytics, usage statistics, crash reports or performance telemetry
+  your device except into your own private iCloud container, and are never transmitted to
+  us or to any AI provider.**
+- Crash reports or performance telemetry, and any analytics beyond the anonymous
+  service-popularity tally described in section 5
 - Advertising or tracking identifiers
 - Your location
 - Your contacts, photo library, calendar or health data
@@ -158,20 +226,23 @@ us or to any AI provider.**
 ## 7. How we use information
 
 We use the limited information described above only to provide the feature you requested,
-to enforce fair-use limits, and to verify access to paid features. We do not profile you,
+to enforce fair-use limits, to verify access to paid features, and — for the anonymous
+service-popularity tally — to decide which services the App suggests first. We do not profile you,
 and we do not use your information for advertising or marketing.
 
 ## 8. Retention
 
 We do not retain your item data, because we never receive it. We do not retain the
-screenshots you submit or the text extracted from them. AI usage counters are kept only as
+screenshots, documents or pages you submit, or the text extracted from them. AI usage
+counters are kept only as
 long as needed to enforce daily limits and understand aggregate load. Entitlement records
-are kept for as long as necessary to honour your purchase. You may request deletion of the
-records in section 4 at any time.
+are kept for as long as necessary to honour your purchase. The service-popularity tally holds
+no identifier, so it cannot be traced back to you or deleted per person. You may request
+deletion of the other records in section 4 at any time.
 
 Retention **by the AI providers** is governed by their own terms, summarised in section 5:
-up to 55 days for abuse monitoring at Google, and per DeepSeek's Open Platform terms for
-DeepSeek.
+up to 30 days for abuse monitoring at OpenAI, up to 55 days at Google, and per DeepSeek's
+Open Platform terms for DeepSeek.
 
 ## 9. Your choices and your rights
 
@@ -180,11 +251,18 @@ it directly:
 
 - **Delete any item** at any time within the App.
 - **Delete everything** by deleting the App and, if you used iCloud sync, removing Expired's
-data from iCloud in your device settings.
-- **Stop all outbound requests** by not using AI Screenshot Import and not entering website
-addresses.
-- **Withdraw consent** for the optional features simply by not using them; no setting needs
-changing and nothing is retained.
+  data from iCloud in your device settings.
+- **Keep content on your device** by not using AI Screenshot Import, Document Scan or Read
+  Page with AI (in the default Automatic mode on a device with Apple Intelligence, screenshots and documents are read on
+  the device first), by not entering website addresses, and by not searching the App Store
+  from the add screen.
+- **Turn off the service-popularity tally** in Settings → Privacy → Share Subscription Usage.
+- **Withdraw consent** for the optional AI features simply by not using them; nothing is
+  retained.
+
+Some requests are part of how the App works and are not optional: the anonymous sign-in and
+subscription check (sections 3 and 5, Purchases) and the exchange-rate download. None of
+them carries your item data.
 
 If you are in the United Kingdom, the European Union or another region granting
 data-protection rights — access, correction, erasure, portability, restriction or objection —
@@ -213,3 +291,5 @@ effective date before the change takes effect.
 
 Questions about this policy, or a data-protection request:
 **swiftstudio.dob@gmail.com**
+
+---
