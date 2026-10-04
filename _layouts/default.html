@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+<nav>
+  <a href="{{ '/' | relative_url }}">All apps</a>
+  <a href="{{ '/eula/' | relative_url }}">EULA</a>
+  <a href="{{ '/expired/' | relative_url }}">Expired</a>
+  <a href="{{ '/lumina/' | relative_url }}">Lumina Library</a>
+  <a href="{{ '/steadystate/' | relative_url }}">SteadyState</a>
+  <a href="{{ '/voxora/' | relative_url }}">Voxora</a>
+</nav>
+<main>
+{{ content }}
+</main>
+<footer>
+  Published by Deon O'Brien, Dubai, United Arab Emirates · <a href="mailto:support@sixshot.app">support@sixshot.app</a>
+</footer>
+</body>
+</html>
