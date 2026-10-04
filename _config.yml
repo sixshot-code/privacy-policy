@@ -1,0 +1,7 @@
+title: Apps by Deon O'Brien
+description: Privacy policies and the End-User License Agreement for Expired, Lumina Library, SteadyState and Voxora.
+markdown: kramdown
+kramdown:
+  input: GFM
+exclude:
+  - README.md
