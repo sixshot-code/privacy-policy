@@ -53,7 +53,7 @@ Some Apps offer paid features, including auto-renewing subscriptions (for exampl
 
 How each App handles information is described in its own privacy policy at the address below. The policies form no part of the licence, but they describe what I do with your information.
 
-**https://swiftstudios-code.github.io/privacy-policy/**
+**https://sixshot-code.github.io/privacy-policy/**
 
 ## 5. Third-party terms
 
