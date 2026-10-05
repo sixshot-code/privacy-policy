@@ -92,7 +92,7 @@ We use the information above only to provide the features you use (your library 
 ## 8. Retention and deletion
 
 - **Your account and library** are kept while your account exists. **You can delete your account in the App** (Settings → Account). This permanently deletes your account on our backend, which removes your library and social data that is stored against it. The App then lets you choose whether to also keep or erase the copy stored on your device and in your iCloud.
-- **Content you published** (reviews, comments, lists) is removed when you delete it or your account, except for copies other users legitimately made and records we must keep to run moderation and keep readers safe (such as a record that a report was made or an account was actioned).
+- **Content you published** (reviews, comments, lists) is removed when you delete it or your account, except for copies other users legitimately made and records we must keep to run moderation and keep readers safe (such as a record that a report was made or an account was actioned). Those moderation records are kept for up to 12 months after an account is deleted, then removed.
 - **Counters and usage limits** are kept only as long as needed to enforce limits.
 - **Backups** held by our backend provider are overwritten on its normal schedule.
 - **Retention by AI and other providers** follows their own terms, summarised in sections 4 and 5.
