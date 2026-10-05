@@ -65,7 +65,7 @@ Voxora can run AI actions on a transcript, for example to summarise it, clean it
 
 **What happens to that text is governed by your own agreement with the provider, not by me.** DeepSeek is based in China, so a request sent to it is processed there. **I cannot tell you that any provider does not retain or reuse what you send, and I do not claim that.** If you do not want a transcript to reach a third party, use Apple Intelligence, or do not run AI actions.
 
-**Some AI steps run automatically.** After a note is transcribed, the App automatically gives it a title if it has none and, by default, writes a summary. Any automation you set up also runs on its own. Each of these uses your **default AI provider**, which is **Apple Intelligence on your device unless you change it**. If you choose an online provider as your default, those automatic steps send the transcript text to it every time a note is transcribed. You can switch the default provider, turn off automatic summaries and disable automations in Settings.
+**Some AI steps run automatically.** After a note is transcribed, the App automatically gives it a title if it has none and, by default, writes a summary. Any automation you set up also runs on its own. Each of these uses your **default AI provider**, which is **Apple Intelligence on your device unless you change it**. If you choose an online provider as your default, those automatic steps send the transcript text to it every time a note is transcribed. You can switch the default provider, turn off automatic summaries and automatic titles, and disable automations in Settings.
 
 ## 5. Other features
 
