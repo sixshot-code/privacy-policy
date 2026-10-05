@@ -8,7 +8,8 @@ Legal pages for the apps published by Deon O'Brien.
 
 ## Terms
 
-- [End-User License Agreement (EULA)](eula/): one agreement that covers all of the apps below.
+- [Apple's standard End-User License Agreement (EULA)](https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) governs the use of every app below.
+- [Additional terms and notices](terms/): app-specific terms that add to Apple's EULA.
 
 ## Privacy policy for each app
 
