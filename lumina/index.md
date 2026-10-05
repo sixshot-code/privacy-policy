@@ -1,4 +1,4 @@
-**Premium AI features (through our server).** Features such as Discover (taste-based recommendations), Mood Discovery, the Concierge chat, contents-scan cleanup and AI cover art are available to Premium users. When you use one, the App sends our server what the feature needs, **which can include information from your library** (for example titles, authors, ratings, tags, the reason you stopped reading a book, the books you are currently reading with your progress, and your reading queue) and **text you type** (a mood, a question to the Concierge, or text recognised from a contents-page scan). Our server forwards it to an AI provider and returns the result. Our server does not store the content of the request. We store a counter.---
+---
 layout: default
 title: Privacy Policy for Lumina Library
 ---
@@ -68,7 +68,7 @@ If you share a link or book from another app into Lumina, the App reads that ite
 
 **On your device.** Where your device supports Apple Intelligence, some features can run on it and nothing leaves the device.
 
-**Premium AI features (through our server).** Features such as Discover (taste-based recommendations), Mood Discovery, the Concierge chat, contents-scan cleanup and AI cover art are available to Premium users. When you use one, the App sends our server what the feature needs, **which can include information from your library** (for example titles, authors, ratings and the genres you read) and **text you type** (a mood, a question to the Concierge, or text recognised from a contents-page scan). Our server forwards it to an AI provider and returns the result. Our server does not store the content of the request. We store a counter.
+**Premium AI features (through our server).** Features such as Discover (taste-based recommendations), Mood Discovery, the Concierge chat, contents-scan cleanup and AI cover art are available to Premium users. When you use one, the App sends our server what the feature needs, **which can include information from your library** (for example titles, authors, ratings, tags, the reason you stopped reading a book, the books you are currently reading with your progress, and your reading queue) and **text you type** (a mood, a question to the Concierge, or text recognised from a contents-page scan). Our server forwards it to an AI provider and returns the result. Our server does not store the content of the request. We store a counter.
 
 The providers currently used are **Google (Gemini)** and **DeepSeek**; DeepSeek is used as a fallback.
 
