@@ -72,7 +72,7 @@ If you share a link or book from another app into Lumina, the App reads that ite
 
 The providers currently used are **Google (Gemini)** and **DeepSeek**; DeepSeek is used as a fallback.
 
-- **Google (Gemini API):** [privacy policy](https://policies.google.com/privacy) · [API terms](https://ai.google.dev/gemini-api/terms). Cover art generation uses Google's image model and sends your description.
+- **Google (Gemini API, paid tier):** [privacy policy](https://policies.google.com/privacy) · [API terms](https://ai.google.dev/gemini-api/terms). Google does not use prompts or generated outputs from the paid API tier to train or fine-tune its models. Requests are retained for up to 55 days solely for abuse and safety monitoring, then purged. Cover art generation uses Google's image model and sends your description.
 - **DeepSeek (Open Platform API):** [privacy policy](https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html). DeepSeek's terms allow broader use than the other providers. **I cannot tell you that data sent to DeepSeek is never retained or never used for model development, and I do not claim that.** DeepSeek is based in China, so a request routed to it is processed there.
 
 **Please do not enter information in an AI feature that you would not want a third party to retain.** Free features (for example short book blurbs and review summaries) use public book information, not your personal library. Our server also uses AI to help build the shared catalogue from public book information. That work does not use your personal data.
