@@ -4,7 +4,7 @@ title: Privacy Policy for Expired
 ---
 # Privacy Policy for Expired
 
-**Effective date: 4 October 2026**
+**Effective date: 16 October 2026**
 
 Expired ("the App") helps you track subscriptions, memberships and documents, and reminds
 you before they renew or expire.
@@ -20,7 +20,8 @@ never collect.
 - **No account is required.** There is no sign-up. We never ask for your name, email
   address or password.
 - **Your item data stays on your device**, and — if you enable iCloud — syncs privately
-  between your own devices through your Apple Account. We cannot see it.
+  between your own devices through your Apple Account. With Expired Pro, a daily backup
+  copy is also saved to your own iCloud Drive. We cannot see any of it.
 - **We operate no analytics, crash-reporting or advertising SDKs**, and we show no
   advertising.
 - We hold three small server-side records about you: a random identifier, a daily
@@ -54,6 +55,20 @@ devices through Apple's iCloud key-value store. These are settings, not item dat
 
 You can disable this at any time in your device's iCloud settings, after which your data
 remains on the single device.
+
+### Automatic backup (Expired Pro)
+
+With Expired Pro, the App saves a backup file of your items **once a day** (only when
+something has changed). The file holds the same item data you entered, including the
+optional person name, email, phone number, payment description, document number, notes and
+icon images, and your price history. It is written to **your own iCloud Drive** (the App's
+folder in your Apple Account), so we never receive it and cannot read it. If iCloud Drive is
+unavailable, the file stays in the App's private storage on your device instead and is
+deleted when you delete the App. The App keeps the **five most recent** backups for each
+device and deletes older ones. You can turn the automatic backup off in
+**Settings → Data & Backup → iCloud Backup**; turning it off, or Pro lapsing, stops new
+backups but does not delete the ones already saved, which you can remove yourself in the
+Files app. Practice (demo) data is never backed up.
 
 ## 3. Anonymous identifier
 
@@ -113,9 +128,10 @@ Four features can send content to an AI service. Each runs only when you choose 
 
 **With the default Analyzer setting ("Automatic"), on a device that supports Apple
 Intelligence, screenshots and documents are processed on your device first**, and if that
-succeeds nothing leaves it. Otherwise — if the device doesn't support it, the on-device
-model can't read the content, or you have chosen a specific cloud provider under Settings →
-Analyzer — the content is sent over an encrypted connection to our processing service (a
+succeeds nothing leaves it. Choosing **On-Device** under Settings → Screenshot Import keeps
+screenshots on your device entirely; nothing is sent to a cloud provider. With Automatic, if
+the device doesn't support Apple Intelligence or the on-device model can't read the content,
+the content is sent over an encrypted connection to our processing service (a
 Supabase Edge Function we operate), which forwards it to **one third-party AI provider at a
 time**, trying the next provider only if one is unavailable:
 
@@ -162,6 +178,14 @@ receives text only, never an image.
 Google does not use prompts or generated outputs from the paid API tier to train or
 fine-tune its models. Requests are retained for up to **55 days** solely for abuse and
 safety monitoring, then purged.
+
+**Anthropic (Claude API)** —
+[privacy policy](https://www.anthropic.com/legal/privacy) ·
+[data retention](https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data)
+Anthropic states that it does not use inputs or outputs from its commercial products,
+including the API, to train its models by default. API inputs and outputs are deleted from
+Anthropic's backend within 30 days of receipt or generation. Anthropic is based in the
+United States.
 
 Because a request may be processed outside the UAE, the UK and the EEA, and because the
 DeepSeek terms above are broader than the others, **please do not submit screenshots,
@@ -228,7 +252,12 @@ To show a recognisable logo for an item, and to suggest apps as you type:
   domain**.
 - When you search for an app while adding an item, and when the App looks up an icon by an
   item's name, **the name you typed** is sent to **Apple's App Store search service**
-  (governed by [Apple's Privacy Policy](https://www.apple.com/legal/privacy/)).
+  (governed by [Apple's Privacy Policy](https://www.apple.com/legal/privacy/)). When you
+  pick a service from the App's built-in catalogue, or ask the App to refresh icons, the
+  App looks up **that service's App Store ID** the same way. Every one of these requests
+  also carries your **App Store region** as a two-letter country code, taken from
+  **Settings → App Store** (or from your device's region when that is set to Automatic), so
+  that Apple returns the app listed in your country.
 
 None of these requests contain an item's cost, dates, notes or any credentials you stored.
 
@@ -252,6 +281,13 @@ from our backend. The request travels with the anonymous session described in se
 but contains nothing about your items, and nothing about it is stored against your
 identifier.
 
+When our backend does not hold the full list of world currencies, the App downloads the
+rates **directly from a free public service, [ExchangeRate-API](https://www.exchangerate-api.com/)
+(open.er-api.com)**, instead of, or in addition to, our backend. That request is a plain
+download of the public rate table: it contains **no identifier and nothing about your items**,
+but, like any internet request, it reveals your IP address to that service (see Network
+metadata below), which handles it under its own policy.
+
 ### Purchases
 
 Expired Pro is sold through Apple's In-App Purchase. Payment is handled entirely by Apple —
@@ -265,8 +301,8 @@ purchases. Subscription changes, cancellations and refunds are handled by Apple.
 ### Network metadata
 
 Any internet request necessarily reveals technical information to whoever receives it. Our
-backend, the icon services and websites, RevenueCat and Apple will each
-receive things such as your **IP address, the time of the request, and network/user-agent
+backend, the icon services and websites, the public exchange-rate service, RevenueCat and
+Apple will each receive things such as your **IP address, the time of the request, and network/user-agent
 information**. We do not store, analyse or use this metadata for any purpose, and we do not
 combine it with anything else; but we cannot claim the request contains nothing beyond the
 content described above. Each recipient handles it under its own policy. (The AI providers
@@ -276,8 +312,8 @@ receive requests from our server, not from your device.)
 
 - Your name, email address, phone number or postal address
 - The account emails, usernames or passwords you store against items. **These never leave
-  your device except into your own private iCloud container, and are never transmitted to
-  us or to any AI provider.**
+  your device except into your own private iCloud container and, with Expired Pro, your own
+  iCloud Drive backup, and are never transmitted to us or to any AI provider.**
 - Crash reports or performance telemetry, and any analytics beyond the anonymous
   service-popularity tally described in section 5
 - Advertising or tracking identifiers
@@ -293,7 +329,8 @@ and we do not use your information for advertising or marketing.
 
 ## 8. Retention
 
-We do not retain your item data, because we never receive it. We do not retain the
+We do not retain your item data, because we never receive it. Backup files (section 2) sit
+in your own iCloud Drive until you delete them; we cannot see or delete them. We do not retain the
 screenshots, documents or pages you submit, or the text extracted from them. AI usage
 counters are kept only as
 long as needed to enforce daily limits and understand aggregate load. Entitlement records
@@ -302,8 +339,8 @@ no identifier, so it cannot be traced back to you or deleted per person. You may
 deletion of the other records in section 4 at any time.
 
 Retention **by the AI providers** is governed by their own terms, summarised in section 5:
-up to 30 days for abuse monitoring at OpenAI, up to 55 days at Google, and per DeepSeek's
-Open Platform terms for DeepSeek.
+up to 30 days for abuse monitoring at OpenAI, up to 55 days at Google, deletion within
+30 days at Anthropic, and per DeepSeek's Open Platform terms for DeepSeek.
 
 ## 9. Your choices and your rights
 
@@ -321,6 +358,10 @@ it directly:
   App.
 - **Keep your items out of system search** with Settings → Privacy & Security → Show in
   Spotlight.
+- **Stop the automatic backup** with Settings → Data & Backup → iCloud Backup, and delete
+  saved backups yourself in the Files app (iCloud Drive).
+- **Choose your App Store region** in Settings → App Store; it is the country code sent
+  with App Store lookups (section 5).
 - **Withdraw consent** for the optional AI features simply by not using them; nothing is
   retained.
 
